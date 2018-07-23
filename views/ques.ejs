@@ -1,0 +1,67 @@
+<% include partials/header %>
+<div class="container" id = "main">
+    <form action="/quiz/<%= set_num%>/<%= num %>/<%= user._id%>"  method="POST" id = "myForm">
+        <div class = "row">
+            <div class = "col-md-9">
+                 <div class="form-group">
+                   <p><%= question.q%></p>
+                   <div id = "options" class = "form-control">
+                       <% i = 0; %>
+                       <% question.options.forEach(function(o){ %>
+                       <% if(parseInt(user.answers[num]) == i) {%>
+                       <input type = "radio" name = "options" value = "<%=i%>" checked = "checked"><%= o%>
+                       <% }else{ %>
+                       <input type = "radio" name = "options" value = "<%=i%>" ><%= o%>
+                       <br>
+                       <% } %>
+                       <% i++; %>
+                        <% }); %>
+                   </div>
+                </div>
+            </div>
+            <div class = "col-md-3">
+                <table >
+                    <% for(var i = 0;i < num_ques;i++) { %>
+                      <tr >
+                        <% for (var j=0;j < 5;j++,i++) { %>
+                        <td><button class="btn btn-xs grid" value = "<%= i%>" name = "btn"><%= i + 1%></button></td>
+                        <% } %>
+                      </tr>
+                      <% i--; %>
+                   <% } %>
+                </table>
+                <span style="display: none;" id="real_time"><%= time %></span>
+                <div>Quiz closes in <span id="time"></span> minutes!</div>
+            </div>
+        </div>
+        
+        <button class = "btn btn-default" name = "btn" value = "<%= num_ques + 1%>">Next</button>
+        <button class = "btn btn-lg" name = "finish" value = "1">Finish</button>
+    </form>
+     
+</div>
+<script>
+    function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            document.forms["myForm"].submit();
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = document.getElementById("real_time").innerHTML,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+</script>
+<% include partials/footer %>

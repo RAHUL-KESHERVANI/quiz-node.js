@@ -1,0 +1,11 @@
+<% include partials/header %>
+        <% var i = 1; %>
+        <%questions.forEach(function(question){ %>
+            <form method="POST" action="/quiz/<%= question._id %>?_method=DELETE" id="jel">
+                <p><%= question.q %></p>
+    			<button class="btn btn-sm btn-danger">Delete</button>
+    		</form>
+            <br>
+        
+        <% }); %>
+<% include partials/footer %>

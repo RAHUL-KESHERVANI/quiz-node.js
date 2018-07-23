@@ -1,0 +1,13 @@
+<% include partials/header %>
+        <% var i = 1; %>
+        <%questions.forEach(function(question){ %>
+        <p><%= question.q %><br></p>
+         <% i = 1; %>
+        <% question.options.forEach(function(o){ %>
+            <%= i %>)<%=o %>
+            <br>
+            <% i++; %>
+        <% }); %>
+        <% }); %>
+        <a href="/add">Add New Questions</a>
+<% include partials/footer %>

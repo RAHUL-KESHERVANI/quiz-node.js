@@ -1,0 +1,24 @@
+<% include partials/header.ejs %>
+<div class="container" style="max-width: 40%;">
+    <form action="/" method="POST">
+        <div class="form-group">
+            <label>Name:</label>
+            <input type="text" name = "user[name]" class="form-control">
+            <label>Token Number:</label>
+            <input type="text" name = "user[token]" class="form-control">
+            <label>Please enter your Phone Number:</label> 
+            <input type="text" name = "user[phone_num]" class="form-control">
+            
+            <label>Enter the language in which you want the question:</label>
+            <select name ="set" class="form-control">
+                <option value = "1">C++</option>
+                <option value = "2">Java</option>
+                <option value = "3">python</option>
+            </select>
+            <div class="form-control text-center">
+            <button class="btn btn-lg ">Start the test</button>
+        </div>
+        </div>
+    </form>
+</div>
+<% include partials/footer.ejs %>

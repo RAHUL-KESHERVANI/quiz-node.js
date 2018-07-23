@@ -1,0 +1,56 @@
+<% include partials/header %>
+<div class = "row">
+    <div class="col-md-4">
+        <table>
+      <thead>
+          <td>User</td>
+          <td>C++</td>
+          <td>Phone no.</td>
+      </thead>
+      <% set1.forEach(function(user){%>
+      <tr>
+          <td><%= user.name%></td>
+          <td><%= user.score%></td>
+          <td><%= user.phone_num%></td>
+      </tr>
+      <% }); %>
+  </table>
+    </div>
+    <div class="col-md-4">
+        <table>
+          <thead>
+              <td>User</td>
+              <td>Java</td>
+              <td>Phone no.</td>
+              
+          </thead>
+          <% set2.forEach(function(user){%>
+          <tr>
+              <td><%= user.name%></td>
+              <td><%= user.score%></td>
+              <td><%= user.phone_num%></td>
+          </tr>
+          <% }); %>
+      </table>
+    </div>
+    <div class="col-md-4">
+         <table>
+          <thead>
+              <td>User</td>
+              <td>Python</td>
+              <td>Phone no.</td>
+          </thead>
+          <% set3.forEach(function(user){%>
+          <tr>
+              <td><%= user.name%></td>
+              <td><%= user.score%></td>
+              <td><%= user.phone_num%></td>
+          </tr>
+          <% }); %>
+      </table>
+    </div>
+</div>
+  
+  
+ 
+<% include partials/footer %>

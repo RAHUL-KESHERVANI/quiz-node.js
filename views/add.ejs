@@ -1,0 +1,23 @@
+<% include partials/header.ejs %>
+        <div class="container">
+            <form action="/add" method="POST">
+                <div class="form-group">
+                    <h1>Questions</h1>
+                    <textarea name = "question[q]" class="form-control"></textarea>
+                    <h1>Options</h1>
+                    A<input type = "radio" name = "correct" value = "0"><input type = "text" name="question[options]" class="form-control">
+                    B<input type = "radio" name = "correct" value = "1"><input type = "text" name="question[options]" class="form-control">
+                    C<input type = "radio" name = "correct" value = "2"><input type = "text" name="question[options]" class="form-control">
+                    D<input type = "radio" name = "correct" value = "3"><input type = "text" name="question[options]" class="form-control">
+        
+                    <button class="btn btn-default">Submit</button>
+                    <select name ="set" required="required">
+                        <option value = "1" <% if(set_num === 1){ %> selected = "selected" <% } %> >C++</option>
+                        <option value = "2" <% if(set_num === 2){ %> selected = "selected"<% } %>>Java</option>
+                        <option value = "3" <% if(set_num === 3){ %> selected = "selected"<% } %>>python</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <a href = "/quiz">Home</a>
+<% include partials/footer.ejs %>
